@@ -40,16 +40,18 @@ function remove() {
 }
 
 function show(){
+    /* call to get the list of array */
     var todos = get_todos();
-
+    /* manualy created snippet html tag */
     var html = '<ul>';
     for (var i=0; i<todos.lenght; i++){
-        html += '<li>' + todos[i] + '<button class="remove" id="' +i + '"'>Delete</button> </li>';
+        html += '<li>' + todos[i] + '<button class="remove" id="' + i + '">Delete</button> </li>';
     };
     html += '</ul>';
+/* it will insert a newly generated html snipet into orginal document loaded from server - replace the content with id of todos */
+    document.getElementById('todos').innerHTML = html;
 
-    document.getElementById('todos'.innerHTML = html);
-
+    /* fetch all the buttons that are in remove class */
     var buttons = document.getElementsByClassName('remove');
     for (var i=0; i<buttons.length; i++){
         buttons[i].addEventListener('click',remove);
